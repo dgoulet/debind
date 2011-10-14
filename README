@@ -1,0 +1,63 @@
+Debind
+------------
+
+Debind is a tool to efficently tunnel, through a secure transport layer, every
+UDP DNS query your Linux machine makes. It redirect every UDP DNS queries
+(system wide) to debind, forge them into DNS TCP queries and forward them to a
+secure tunnel using SSH or other possible secure TCP tunnel you can come up
+with.
+
+Other very cool features come with it. Please use it, play with it and feel
+free to communicate with the authors for any questions/comments/contributions/
+and beers to offer :).
+
+Latest development can be found at:
+
+	* Gitweb: http://git.ev0ke.net/debind.git
+	* Git: git://git.ev0ke.net/debind.git
+
+REQUIREMENTS:
+
+	- iptables
+	Needed for DNAT option and NFQUEUE option.
+
+	- libnetfilter_queue >= 1.0.0
+	It is a userspace library providing an API to packets that have been queued
+	by the kernel packet filter.
+
+	http://www.netfilter.org/projects/libnetfilter_queue/index.html
+
+	Requires NFQUEUE option from the Netfilter project in your kernel.
+
+	- libssh2 >= 1.30
+	It is a client-side C library implementing the SSH2 protocol.
+
+	http://www.libssh2.org/
+
+	- libpopt
+	Library for parsing command line parameters
+
+	* Debian/Ubuntu package: libpopt-dev
+
+USAGE:
+
+Basic use case:
+
+In order to redirect *all* UDP DNS traffic, which is basically all DNS traffic of
+a standard Linux box, do the following:
+
+$ sudo ./debind --ssh USER@HOST[:PORT] --dnat
+
+--ssh : Will create the SSH tunnel using libssh2.
+
+--dnat: Will use iptables to DNAT every DNS request to the local port which is 1337.
+
+Note that you can use your own SSH tunnel created with the ssh client like so:
+
+$ ssh -L 1337:<forward-dns-ip>:53 ...
+
+and run debind:
+
+$ sudo ./debind --dnat -p 1337
+
+Other options are available. Use --help for a complete listing.
