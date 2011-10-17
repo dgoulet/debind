@@ -1,15 +1,19 @@
 CC := gcc
-CFLAGS := -Wall -g
+CFLAGS := -Wall -g -c
 LDFLAGS := -lpopt -lssh2 -lnetfilter_queue -lpthread
-NAME := debind
+SRCDIR := src
+SOURCES := $(SRCDIR)/ssh.c $(SRCDIR)/tcp.c $(SRCDIR)/udp.c \
+	$(SRCDIR)/dns.c $(SRCDIR)/netfilter.c $(SRCDIR)/main.c
+OBJECTS := $(SOURCES:.c=.o)
+EXECUTABLE := debind
 
-all::
-	$(CC) ssh.c -o ssh.o -c $(CFLAGS)
-	$(CC) tcp.c -o tcp.o -c $(CFLAGS)
-	$(CC) udp.c -o udp.o -c $(CFLAGS)
-	$(CC) dns.c -o dns.o -c $(CFLAGS)
-	$(CC) netfilter.c -o netfilter.o -c $(CFLAGS)
-	$(CC) main.c ssh.o dns.o tcp.o udp.o netfilter.o $(CFLAGS) $(LDFLAGS) -o $(NAME)
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
 
 clean::
-	rm -f *.o $(NAME)
+	rm -f src/*.o $(EXECUTABLE)
