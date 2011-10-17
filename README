@@ -11,6 +11,19 @@ Other very cool features come with it. Please use it, play with it and feel
 free to communicate with the authors for any questions/comments/contributions/
 and beers to offer :).
 
+WHY:
+
+DNS is one of the most important service for Internet usage. As a matter of
+fact, this is also the most filtered and logged services accross ISPs in the
+world and thus being filtered, controlled and use for user profiling. With
+*debind*, you'll be able to reroute every DNS queries through a secure channel
+to a, hopefully, regular DNS server with less ISP "invasion".
+
+Using Tor, SSH, Web SOCKS, OTR chat, SSL IRC, etc... in any case, the DNS is
+the forgotten service which leaks to your ISP.
+
+Solution, use debind :). Cheers!
+
 REQUIREMENTS:
 
 	- iptables
@@ -33,6 +46,18 @@ REQUIREMENTS:
 	Library for parsing command line parameters
 
 	* Debian/Ubuntu package: libpopt-dev
+
+COMPILE:
+
+	Download sources then:
+	$ make
+
+	and use "debind" binary.
+
+	NOTE: At this point, there is no standard known build system (cmake or
+	autoconf) so no installation mechanism. To install this on your system,
+	simply copy it to /usr/bin/ and use it from there. Since there is a SSH
+	tunnel to create, this makes it difficult to start it at boot.
 
 USAGE:
 
