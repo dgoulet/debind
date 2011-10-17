@@ -702,7 +702,7 @@ int main(int argc, char **argv)
 	if (udp_client_sock < 0) {
 		goto error;
 	}
-	DBG("Listening for DNS request on UDP port %d", local_port);
+	fprintf(stderr, "Listening for DNS request on UDP port %d\n", local_port);
 
 	while (1) {
 		/* Reset buffer */
