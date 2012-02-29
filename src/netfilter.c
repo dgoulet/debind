@@ -44,7 +44,6 @@ static FILE *log_file;
 
 static uint32_t extract_payload(struct nfq_data *tb)
 {
-	int ret;
 	uint32_t id = 0;
 	struct nfqnl_msg_packet_hdr *ph;
 
