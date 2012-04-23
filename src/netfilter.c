@@ -52,7 +52,7 @@ static uint32_t extract_payload(struct nfq_data *tb)
 		id = ntohl(ph->packet_id);
 	}
 
-	ret = nfq_get_payload(tb, &pkt_buffer);
+	(void) nfq_get_payload(tb, &pkt_buffer);
 
 	return id;
 }
