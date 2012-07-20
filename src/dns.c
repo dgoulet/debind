@@ -3,7 +3,7 @@
  *
  * Library used for DNS actions on packets.
  *
- * Copyright (C) 2011 - David Goulet <iam@truie.org>
+ * Copyright (C) 2011 - David Goulet <dgoulet@ev0ke.net>
  *                      Julien Desfossez <ju@klipix.org>
  *
  * This program is free software; you can redistribute it and/or modify it

@@ -3,7 +3,7 @@
  *
  * Debind main file.
  *
- * Copyright (C) 2011 - David Goulet <iam@truie.org>
+ * Copyright (C) 2011 - David Goulet <dgoulet@ev0ke.net>
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by as
@@ -120,7 +120,7 @@ static void usage(FILE *fp)
 	fprintf(fp, "Then, run %s using the same exact values pass to the -L option.\n", progname);
 	fprintf(fp, "\n");
 	fprintf(fp, "GPLv2. Please use it, change it, contribute to it! Cheers!\n");
-	fprintf(fp, "David Goulet <iam@truie.org>\n");
+	fprintf(fp, "David Goulet <dgoulet@ev0ke.net>\n");
 }
 
 /*

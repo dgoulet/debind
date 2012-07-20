@@ -3,7 +3,7 @@
  *
  * Debind basic defines for the main binary.
  *
- * Copyright (C) 2011 - David Goulet <iam@truie.org>
+ * Copyright (C) 2011 - David Goulet <dgoulet@ev0ke.net>
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by as
